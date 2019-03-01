@@ -37,12 +37,6 @@ public class ProfessorResource {
 		return profService.getProfessor(profId);
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Professor> getAllProfessors() {
-		return profService.getAllProfessors();
-	}
-	
 	@DELETE
 	@Path("/{profId}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -58,15 +52,7 @@ public class ProfessorResource {
 		return profService.updateProfessor(profId, prof);
 	}
 	
-//	@GET
-//	@Path("/{profId}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Professor> getProfessorsByDepartment(@QueryParam("department") String department) {
-//		return profService.getProfessorsByDepartment(department);
-//	}
-	
 	@GET
-	@Path("/{profId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Professor> getProfessorsByOptions(
 			@QueryParam("department") String department,
