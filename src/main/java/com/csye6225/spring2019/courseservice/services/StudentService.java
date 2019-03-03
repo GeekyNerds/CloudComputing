@@ -83,6 +83,7 @@ public class StudentService {
 			for(Long courseIdEnrolled : student.getCourseIdsEnrolled()) {
 				if(courseIdEnrolled.toString().equals(courseId)) {
 					isEnrolled = true;
+					break;
 				}	
 			}
 			if(!isEnrolled) {
