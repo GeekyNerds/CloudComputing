@@ -50,7 +50,7 @@ public class ProfessorService {
 		if(joiningDate != null && !joiningDate.toString().isEmpty()) {
 			profToBeUpdated.setJoiningDate(joiningDate);
 		}
-		profMap.put(profId, profToBeUpdated);
+		
 		return profToBeUpdated;
 	}
 	
@@ -65,6 +65,7 @@ public class ProfessorService {
 		if(size != null && !size.isEmpty()) {
 			profList = getProfessorsBySize(profList, Integer.parseInt(size));
 		}
+		
 		return profList;
 	}
 	
@@ -74,6 +75,7 @@ public class ProfessorService {
 				profList.remove(prof);
 			}
 		}
+		
 		return profList;
 	}
 	
@@ -83,6 +85,7 @@ public class ProfessorService {
 				profList.remove(prof);
 			}
 		}
+		
 		return profList;
 	}
 	

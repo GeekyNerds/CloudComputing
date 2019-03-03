@@ -17,7 +17,7 @@ import com.csye6225.spring2019.courseservice.datamodels.Professor;
 import com.csye6225.spring2019.courseservice.services.ProfessorService;
 
 /**
- * Professor resource (exposed at "professor" path)
+ * Professor resource (exposed at "professors" path)
  */
 @Path("professors")
 public class ProfessorResource {
@@ -60,6 +60,5 @@ public class ProfessorResource {
 			@QueryParam("size") String size) {
 		return profService.getProfessorsByOptions(department, year, size);
 	}
-	
 	
 }
