@@ -33,14 +33,14 @@ public class ProfessorResource {
 	@GET
 	@Path("/{profId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Professor getProfessor(@PathParam("profId") long profId) {
+	public Professor getProfessor(@PathParam("profId") String profId) {
 		return profService.getProfessor(profId);
 	}
 	
 	@DELETE
 	@Path("/{profId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Professor deleteProfessor(@PathParam("profId") long profId) {
+	public Professor deleteProfessor(@PathParam("profId") String profId) {
 		return profService.deleteProfessor(profId);
 	}
 	
@@ -48,7 +48,7 @@ public class ProfessorResource {
 	@Path("/{profId}")
 	@Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-	public Professor updateProfessor(@PathParam("profId") long profId, Professor prof) {
+	public Professor updateProfessor(@PathParam("profId") String profId, Professor prof) {
 		return profService.updateProfessor(profId, prof);
 	}
 	

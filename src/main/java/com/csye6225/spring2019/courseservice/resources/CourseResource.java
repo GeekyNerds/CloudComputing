@@ -33,14 +33,14 @@ public class CourseResource {
 	@GET
 	@Path("/{courseId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Course getCourse(@PathParam("courseId") long courseId) {
+	public Course getCourse(@PathParam("courseId") String courseId) {
 		return courseService.getCourse(courseId);
 	}
 	
 	@DELETE
 	@Path("/{courseId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Course deleteCourse(@PathParam("courseId") long courseId) {
+	public Course deleteCourse(@PathParam("courseId") String courseId) {
 		return courseService.deleteCourse(courseId);
 	}
 	
@@ -48,17 +48,18 @@ public class CourseResource {
 	@Path("/{courseId}")
 	@Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-	public Course updateCourse(@PathParam("courseId") long courseId, Course course) {
+	public Course updateCourse(@PathParam("courseId") String courseId, Course course) {
 		return courseService.updateCourse(courseId, course);
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Course> getCoursesByOptions(
-			@QueryParam("programName") String programName,
 			@QueryParam("professorId") String professorId,
-			@QueryParam("taStudentId") String taStudentId) {
-		return courseService.getCoursesByOptions(programName, professorId, taStudentId);
+			@QueryParam("taId") String taId,
+			@QueryParam("department") String department,
+			@QueryParam("boardId") String boardId) {
+		return courseService.getCoursesByOptions(professorId, taId, department, boardId);
 	}
 	
 }
