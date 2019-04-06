@@ -65,6 +65,7 @@ public class CourseService {
     	try {
     		Course courseToBeDeleted = getCourse(courseId);
         	updateStudentRegisteredCourseIdsOnDeletingCourse(courseToBeDeleted);
+        	deleteBoardAssociated(courseId);
         	dynamoDBMapper.delete(courseToBeDeleted);
         	return courseToBeDeleted;
         	
@@ -188,6 +189,15 @@ public class CourseService {
     	} catch (Exception e) {
     		e.printStackTrace();
     	}	
+    }
+    
+    private void deleteBoardAssociated(String courseId) {
+    	try {
+			BoardService boardService = new BoardService();
+			boardService.deleteBoard(courseId.concat("board"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
 }

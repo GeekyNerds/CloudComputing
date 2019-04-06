@@ -45,11 +45,21 @@ public class BoardService {
 	public Board deleteBoard(String boardId) {
 		try {
 			Board boardToBeDeleted = getBoard(boardId);
+			deleteAnnouncementsAssociated(boardId);
 			dynamoDBMapper.delete(boardToBeDeleted);
 			return boardToBeDeleted;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	private void deleteAnnouncementsAssociated(String boardId) {
+		try {
+			AnnouncementService announcementService = new AnnouncementService();
+			announcementService.deleteAnnouncements(boardId);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

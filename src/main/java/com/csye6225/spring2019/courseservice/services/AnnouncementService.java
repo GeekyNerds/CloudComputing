@@ -79,6 +79,17 @@ public class AnnouncementService {
 		}
 	}
 	
+	public List<Announcement> deleteAnnouncements(String boardId) {
+		try {
+			List<Announcement> announcementsToBeDeleted = getAnnouncements(boardId);
+			dynamoDBMapper.batchDelete(announcementsToBeDeleted);
+			return announcementsToBeDeleted;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public Announcement updateAnnouncement(
 			String boardId, 
 			String announcementId, 

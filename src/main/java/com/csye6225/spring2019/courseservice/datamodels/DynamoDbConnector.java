@@ -10,10 +10,8 @@ public class DynamoDbConnector {
 	 static AmazonDynamoDB dynamoDb ;
  
 	 public static void init() {
-		// InstanceCredentialsProvider
 		if (dynamoDb == null) {
 			InstanceProfileCredentialsProvider credentialsProvider = new InstanceProfileCredentialsProvider(false);
-			//ProfileCredentialsProvider credentialsProvider = new ProfileCredentialsProvider();
 			credentialsProvider.getCredentials();
 			dynamoDb = AmazonDynamoDBClientBuilder
 					.standard()
